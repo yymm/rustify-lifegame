@@ -4,14 +4,14 @@ mod lifegame;
 use xorshift::XorShift;
 use lifegame::Lifegame;
 
-const ROW: usize = 200;
-const COL: usize = 200;
+const ROW: usize = 400;
+const COL: usize = 400;
 
 #[no_mangle]
 pub fn update(ptr: *mut bool, len: usize) {
     let buf: &mut [bool] = unsafe { std::slice::from_raw_parts_mut(ptr, len) };
     let mut game = Lifegame::new(buf, ROW, COL);
-    buf.clone_from_slice(game.next());
+    buf.clone_from_slice(&game.next());
 }
 
 #[no_mangle]
