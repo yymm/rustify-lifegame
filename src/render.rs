@@ -4,8 +4,8 @@ mod lifegame;
 use xorshift::XorShift;
 use lifegame::Lifegame;
 
-const ROW: usize = 5;
-const COL: usize = 5;
+const ROW: usize = 200;
+const COL: usize = 200;
 
 #[no_mangle]
 pub fn update(ptr: *mut bool, len: usize) {
